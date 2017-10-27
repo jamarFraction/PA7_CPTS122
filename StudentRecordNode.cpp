@@ -1,6 +1,7 @@
 #include "StudentRecordNode.h"
 
-StudentRecordNode::StudentRecordNode(int pRecordNumber, int pIDNumber, string pEmail, string pUnits, string pProgram, string pLevel){
+StudentRecordNode::StudentRecordNode(int pRecordNumber, int pIDNumber, string pEmail, string pUnits, string pProgram, string pLevel,
+    StudentRecordNode *next){
     
     recordNumber = pRecordNumber;
 
@@ -14,9 +15,11 @@ StudentRecordNode::StudentRecordNode(int pRecordNumber, int pIDNumber, string pE
 
     level = pLevel;
 
+    nextRecord = next;
+
 }
 
-int StudentRecordNode::GetRecordNumber(){
+int StudentRecordNode::GetRecordNumber() const{
 
     //return the private member
     return recordNumber;
@@ -39,7 +42,7 @@ void StudentRecordNode::SetRecordNumber(int passedRecordNumber){
     }
 }
 
-int StudentRecordNode::GetIDNumber(){
+int StudentRecordNode::GetIDNumber() const{
 
     //return the private data member
     return IDNumber;
@@ -72,14 +75,14 @@ void StudentRecordNode::SetFullName(string passedFirstName, string passedLastNam
 
 }
 
-string StudentRecordNode::GetFirstName(){
+string StudentRecordNode::GetFirstName() const{
 
     //return the student's first name
     return this->studentName.firstName;
 
 }
 
-string StudentRecordNode::GetLastName(){
+string StudentRecordNode::GetLastName() const{
 
     //return the student's last name
     return this->studentName.lastName;
@@ -93,7 +96,7 @@ void StudentRecordNode::SetEmail(string passedEmail){
 
 }
 
-string StudentRecordNode::GetEmail(){
+string StudentRecordNode::GetEmail() const{
 
     //return the email
     return email;
@@ -106,7 +109,7 @@ void StudentRecordNode::SetUnits(string passedUnits){
 
 }
 
-string StudentRecordNode::GetUnits(){
+string StudentRecordNode::GetUnits() const{
 
     return units;
 
@@ -126,15 +129,27 @@ void StudentRecordNode::SetLevel(string passedLevel){
 
 }
 
-string StudentRecordNode::GetProgram(){
+string StudentRecordNode::GetProgram() const{
 
     return program;
 
 }
 
-string StudentRecordNode::GetLevel(){
+string StudentRecordNode::GetLevel() const{
 
     return level;
 
+
+}
+
+void StudentRecordNode::SetNext(StudentRecordNode *&passedRecord){
+
+    nextRecord = passedRecord;
+
+}
+
+StudentRecordNode* StudentRecordNode::GetNext() const{
+
+    return nextRecord;
 
 }

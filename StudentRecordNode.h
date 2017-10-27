@@ -1,6 +1,4 @@
 #include <string>
-
-
 using std::string;
 
 class StudentRecordNode{
@@ -38,11 +36,13 @@ private:
     string units;
     string program;
     string level;
+    StudentRecordNode *nextRecord;
 
 public:
 
     //Defualt constructor
-    StudentRecordNode(int pRecordNumber = 0, int pIDNumber = 0, string pEmail = "", string pUnits = "", string pProgram = "", string pLevel = "");
+    StudentRecordNode(int pRecordNumber = 0, int pIDNumber = 0, string pEmail = "", string pUnits = "", string pProgram = "",
+     string pLevel = "", StudentRecordNode *next = nullptr);
 
     //Setters
     //////////////////////////////////////////////////
@@ -67,33 +67,38 @@ public:
     //setter for the level
     void SetLevel(string passedLevel);
 
+    //Setter for the next record
+    void SetNext(StudentRecordNode *&passedRecord);
 
 
     //Getters
     //////////////////////////////////////////////////
     //getter for the record number
-    int GetRecordNumber();
+    int GetRecordNumber() const;
 
     //getter for the ID Number 
-    int GetIDNumber();
+    int GetIDNumber() const;
 
     //getter for the first name
-    string GetFirstName();
+    string GetFirstName() const;
     
     //getter for the last name
-    string GetLastName();
+    string GetLastName() const;
     
     //getter for the email
-    string GetEmail();
+    string GetEmail() const;
 
     //getter for the units (number of credits)
-    string GetUnits();
+    string GetUnits() const;
 
     //getter for the program
-    string GetProgram();
+    string GetProgram() const;
      
     //getter for the level (class standing)
-    string GetLevel();
+    string GetLevel() const;
+
+    //Getter for the next record
+    StudentRecordNode* GetNext() const;
 
 
 };
