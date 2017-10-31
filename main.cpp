@@ -6,6 +6,12 @@ using std::endl;
 
 int main(void){
 
+
+    AbsenceStack test;
+
+
+
+
     //create a new menu
     Menu newMenu;
 

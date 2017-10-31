@@ -4,7 +4,7 @@
         {
             "taskName": "build",
             "type": "shell",
-            "command": "g++ -g main.cpp StudentRecordNode.cpp StudentRecordList.cpp -o PA7",
+            "command": "g++ -g main.cpp StudentRecordNode.cpp StudentRecordList.cpp AbsenceStack.cpp StackNode.cpp -o PA7",
             "group": {
                 "kind": "build",
                 "isDefault": true

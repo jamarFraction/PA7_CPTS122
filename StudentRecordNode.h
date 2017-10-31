@@ -1,5 +1,8 @@
 #include <string>
+#include "AbsenceStack.h"
+
 using std::string;
+
 
 class StudentRecordNode{
 
@@ -37,6 +40,9 @@ private:
     string program;
     string level;
     StudentRecordNode *nextRecord;
+
+    int numberOfAbsences;
+    AbsenceStack *stackTop;
 
 public:
 

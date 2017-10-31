@@ -33,7 +33,7 @@ private:
     StudentRecordNode *&makeNode(int passedRecordNumber, int passedIDNumber, string passedLastName, string passedFirstName,
         string passedEmail, string passedUnits, string passedProgram, string passedLevel);
 
-
+    
     void SetValues(StudentRecordNode *&passedNode, int passedRecordNumber, int passedIDNumber, string passedLastName, string passedFirstName,
         string passedEmail, string passedUnits, string passedProgram, string passedLevel);    
 
