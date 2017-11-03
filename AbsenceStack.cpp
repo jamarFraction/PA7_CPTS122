@@ -38,11 +38,33 @@ void AbsenceStack::Push(StackNode *&passedData){
         //Pushing into a non-empty stack
 
         //set the old top's next pointer to the passedData
-        temp->SetNextNode(passedData);
+        
 
         //set the top of the stack to the passedData
         sTop = passedData;
 
     }
 
+}
+
+StackNode*& AbsenceStack::Pop() {
+
+	//check to see if the stack is empty
+	if (this->isEmpty()) {
+
+		//return a nullptr becuase the stack is empty
+		return nullptr;
+
+	}
+
+	//the stack is not empty
+
+	//create a StackNode pointer and point it to the current sTop
+	StackNode *headNode = this->sTop;
+
+	//point the new sTop to the current sTop's next node
+	sTop = sTop->GetNextNode();
+
+	//return the head node
+	return headNode;
 }

@@ -59,6 +59,8 @@ private:
 
                                 this->ImportClassList();
 
+								StackNode *tempNode = recordList->GetHead()->GetStack()->Pop<class T>();
+
                             }else{
 
                                 //error, file already read in
@@ -66,6 +68,11 @@ private:
                                 cout << "Error- File already read in!" << endl;
 
                             }
+
+							
+
+							
+					
                                 
                                 break;
                             
@@ -103,6 +110,7 @@ private:
 
             //OoooOOOoooOOooOOOOooo where's the file, fam?
             cout << "Error opening file!" << endl;
+			system("pause");
         }
 
 
@@ -128,6 +136,7 @@ private:
             string fileUnits = "";
             string fileProgram = "";
             string fileLevel = "";
+			string trash = "";
 
             //Pull all of the information from the line into local variables
             //Record number
@@ -155,12 +164,13 @@ private:
             getline(passedClassList, fileProgram, ',');
 
             //Level
-            getline(passedClassList, fileLevel, '\r');
+            getline(passedClassList, fileLevel, '\n');
+
+			//getline(passedClassList, trash, '\r');
 
             //Pass the variables to the insertion function
             recordList->InsertRecord(fileRecordNumber, fileIDNumber, fileLastName, fileFirstName, fileEmail, fileUnits, fileProgram, fileLevel);
 
-    
         }
 
 

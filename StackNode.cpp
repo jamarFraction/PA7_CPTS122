@@ -1,11 +1,9 @@
 #include "StackNode.h"
 
-
-template <class T>
-StackNode::StackNode(T passedData, T* passednextNode){
+StackNode::StackNode(Absence passedData, StackNode* passednextNode){
 
     //Set the defualt variables to the constructor default values
-    data <T> = passedData;
+    absenceDate
 
     //will be nullptr
     nextNode = passednextNode;
@@ -19,11 +17,24 @@ T StackNode::GetData(){
 
 }
 
+template<class T>
+void StackNode::SetData(T passedData){
+
+	this->data = passedData;
+
+}
+
+template<class T>
+T * StackNode::GetNextNode(){
+
+	return this->GetNextNode();
+
+}
+
 template <class T>
 void StackNode::SetNextNode(T *&passedNode){
 
+
     nextNode = passedNode;
-
-
 
 }

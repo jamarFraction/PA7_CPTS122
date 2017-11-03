@@ -31,7 +31,7 @@ private:
     // units (number of credits for class or AU for audit)
     // program (major)
     // level (freshman, sophomore, junior, senior, graduate)
-
+	
     int recordNumber;
     int IDNumber;
     FullName studentName;
@@ -48,7 +48,7 @@ public:
 
     //Defualt constructor
     StudentRecordNode(int pRecordNumber = 0, int pIDNumber = 0, string pEmail = "", string pUnits = "", string pProgram = "",
-     string pLevel = "", StudentRecordNode *next = nullptr);
+     string pLevel = "", StudentRecordNode *next = nullptr, int pNumOfAbsences = 0, AbsenceStack *pStackTop = nullptr);
 
     //Setters
     //////////////////////////////////////////////////
@@ -75,6 +75,9 @@ public:
 
     //Setter for the next record
     void SetNext(StudentRecordNode *&passedRecord);
+
+	//Setter for the absences
+	void SetAbsences(int passedAbsences);
 
 
     //Getters
@@ -105,6 +108,9 @@ public:
 
     //Getter for the next record
     StudentRecordNode* GetNext() const;
+
+	//Getter for the absence stack
+	AbsenceStack*& GetStack();
 
 
 };

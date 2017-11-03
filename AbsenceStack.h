@@ -12,8 +12,8 @@ private:
 
 public:
 
-     //Default constructor
-     AbsenceStack(StackNode *passedTop = nullptr);
+    //Default constructor
+    AbsenceStack(StackNode *passedTop = nullptr);
 
     //IsEmpty
     bool isEmpty();
@@ -21,11 +21,6 @@ public:
     //Push
     void Push(StackNode *&passedData);
 
-
-
-
-
-
-
-
+	//Pop 
+	StackNode*& Pop();
 };

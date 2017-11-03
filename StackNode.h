@@ -1,39 +1,32 @@
 #include <iostream>
 #include <stdio.h>
+#include "Absence.h"
 
 
 class StackNode{
 
 private:
 
-    template <class T>
-    static T data;
+	Absence absenceDate;
 
     StackNode *nextNode;
 
     
-
-
 public:
 
     //Defualt Constructor
-    template <class T>
-    StackNode(T passedData = NULL, T* passednextNode = nullptr);
+    StackNode(Absence passedData = NULL, StackNode* passednextNode = nullptr);
 
     //Getter for the data
-    template <class T>
-    T GetData();
+    Absence& GetData();
 
     //Setter for the data
-    template <class T>
-    void SetData(T passedData);
+    void SetData(Absence &passedData);
 
     //Getter for the next Node
-    template <class T>
-    T* GetNextNode();
+    Absence* GetNextNode();
 
     // //Setter for the next Node
-    // template <class T>
-    // void SetNextNode(T *&passedNode);
+    void SetNextNode(Absence *&passedNode);
 
 };
