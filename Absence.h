@@ -16,7 +16,7 @@ public:
 	void SetYear(int passedYear);
 
 	int GetDay();
-	string SetMonth();
+	string GetMonth();
 	int GetYear();
 
 

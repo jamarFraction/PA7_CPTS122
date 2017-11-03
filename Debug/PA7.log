@@ -1,2 +1,4 @@
-﻿main.obj : error LNK2019: unresolved external symbol "public: class StackNode * & __thiscall AbsenceStack::Pop<class `private: void __thiscall Menu::DisplayMenu(void)'::`9'::T>(void)" (??$Pop@VT@?8??DisplayMenu@Menu@@AAEXXZ@@AbsenceStack@@QAEAAPAVStackNode@@XZ) referenced in function "private: void __thiscall Menu::DisplayMenu(void)" (?DisplayMenu@Menu@@AAEXXZ)
-C:\Users\Jamar\Documents\CPTS122\PA7\Debug\PA7.exe : fatal error LNK1120: 1 unresolved externals
+﻿  AbsenceStack.cpp
+c:\users\jamar\documents\cpts122\pa7\absencestack.cpp(54): warning C4172: returning address of local variable or temporary: headNode
+  PA7.vcxproj -> C:\Users\Jamar\Documents\CPTS122\PA7\Debug\PA7.exe
+  PA7.vcxproj -> C:\Users\Jamar\Documents\CPTS122\PA7\Debug\PA7.pdb (Full PDB)

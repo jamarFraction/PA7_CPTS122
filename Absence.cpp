@@ -34,7 +34,7 @@ int Absence::GetDay() {
 
 }
  
-string Absence::SetMonth() {
+string Absence::GetMonth() {
 
 	return month;
 

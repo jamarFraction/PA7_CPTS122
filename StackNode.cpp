@@ -1,39 +1,40 @@
 #include "StackNode.h"
 
-StackNode::StackNode(Absence passedData, StackNode* passednextNode){
+StackNode::StackNode(){
 
     //Set the defualt variables to the constructor default values
-    absenceDate
+	absenceDate.SetDay(0);
+
+	absenceDate.SetMonth("");
+
+	absenceDate.SetYear(0);
 
     //will be nullptr
-    nextNode = passednextNode;
+    nextNode = nullptr;
 
 }
 
-template <class T>
-T StackNode::GetData(){
 
-    return data <T>;
+Absence& StackNode::GetData(){
 
-}
-
-template<class T>
-void StackNode::SetData(T passedData){
-
-	this->data = passedData;
+	return this->absenceDate;
 
 }
 
-template<class T>
-T * StackNode::GetNextNode(){
 
-	return this->GetNextNode();
+void StackNode::SetData(Absence &passedData){
+
+	this->absenceDate = passedData;
 
 }
 
-template <class T>
-void StackNode::SetNextNode(T *&passedNode){
+StackNode*& StackNode::GetNextNode(){
 
+	return nextNode;
+
+}
+
+void StackNode::SetNextNode(StackNode *&passedNode){
 
     nextNode = passedNode;
 

@@ -55,7 +55,7 @@ void StudentRecordList::SetHead(StudentRecordNode *&passedNode){
 
 }
 
-StudentRecordNode* StudentRecordList::GetHead(){
+StudentRecordNode*& StudentRecordList::GetHead(){
 
     return headNode;
 

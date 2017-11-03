@@ -21,7 +21,7 @@ public:
     void SetHead(StudentRecordNode *&passedNode);    
 
     //Getter for the head node
-    StudentRecordNode *GetHead();
+    StudentRecordNode *&GetHead();
  
 
 private:
@@ -29,11 +29,6 @@ private:
     //Start of the list
     StudentRecordNode *headNode;
 
-    //Private helper function for making nodes
-    StudentRecordNode *&makeNode(int passedRecordNumber, int passedIDNumber, string passedLastName, string passedFirstName,
-        string passedEmail, string passedUnits, string passedProgram, string passedLevel);
-
-    
     void SetValues(StudentRecordNode *&passedNode, int passedRecordNumber, int passedIDNumber, string passedLastName, string passedFirstName,
         string passedEmail, string passedUnits, string passedProgram, string passedLevel);    
 

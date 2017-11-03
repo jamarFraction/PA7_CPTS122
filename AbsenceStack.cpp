@@ -22,43 +22,28 @@ bool AbsenceStack::isEmpty(){
 
 }
 
-void AbsenceStack::Push(StackNode *&passedData){
+void AbsenceStack::Push(StackNode &passedData){
 
     //Create a pointer to a Stacknode and point it to the the top of the stack
-    StackNode *temp = sTop;
+    StackNode temp = *sTop;
     
+	if(this->isEmpty()) {
 
-    //Pushing into an empty stack
-    if(temp == nullptr){
+		sTop = &passedData;
 
-        sTop = passedData;
+	}
+	else {
 
-    }else{
+		//set the top of the stack to the passedData
+		sTop = &passedData;
 
-        //Pushing into a non-empty stack
-
-        //set the old top's next pointer to the passedData
-        
-
-        //set the top of the stack to the passedData
-        sTop = passedData;
-
-    }
+	}
 
 }
 
 StackNode*& AbsenceStack::Pop() {
 
-	//check to see if the stack is empty
-	if (this->isEmpty()) {
-
-		//return a nullptr becuase the stack is empty
-		return nullptr;
-
-	}
-
-	//the stack is not empty
-
+	
 	//create a StackNode pointer and point it to the current sTop
 	StackNode *headNode = this->sTop;
 

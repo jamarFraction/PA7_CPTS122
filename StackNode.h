@@ -15,7 +15,7 @@ private:
 public:
 
     //Defualt Constructor
-    StackNode(Absence passedData = NULL, StackNode* passednextNode = nullptr);
+    StackNode();
 
     //Getter for the data
     Absence& GetData();
@@ -24,9 +24,9 @@ public:
     void SetData(Absence &passedData);
 
     //Getter for the next Node
-    Absence* GetNextNode();
+    StackNode*& GetNextNode();
 
     // //Setter for the next Node
-    void SetNextNode(Absence *&passedNode);
+    void SetNextNode(StackNode *&passedNode);
 
 };

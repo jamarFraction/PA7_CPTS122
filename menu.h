@@ -59,7 +59,22 @@ private:
 
                                 this->ImportClassList();
 
-								StackNode *tempNode = recordList->GetHead()->GetStack()->Pop<class T>();
+								//Testing
+								StackNode blah;
+
+								Absence testAbsence;
+
+								testAbsence.SetDay(7);
+								testAbsence.SetMonth("July");
+								testAbsence.SetYear(1991);
+
+
+								
+
+								this->recordList->GetHead()->GetStack()->Push(blah);
+
+								StackNode *tempNode = this->recordList->GetHead()->GetStack()->Pop();
+								//end testing
 
                             }else{
 
