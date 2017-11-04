@@ -22,6 +22,12 @@ bool AbsenceStack::isEmpty(){
 
 }
 
+StackNode*& AbsenceStack::GetTop() {
+
+	return this->sTop;
+
+}
+
 void AbsenceStack::Push(StackNode *&passedData) {
 
 	if(this->isEmpty()) {
@@ -46,9 +52,8 @@ void AbsenceStack::Push(StackNode *&passedData) {
 
 StackNode*& AbsenceStack::Pop() {
 
-	
 	//create a StackNode pointer and point it to the current sTop
-	StackNode *headNode = this->sTop;
+	static StackNode *headNode = this->sTop;
 
 	//point the new sTop to the current sTop's next node
 	sTop = sTop->GetNextNode();

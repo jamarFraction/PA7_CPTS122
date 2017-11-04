@@ -41,14 +41,14 @@ private:
     string level;
     StudentRecordNode *nextRecord;
 
-    int numberOfAbsences;
+    string numberOfAbsences;
     AbsenceStack *stackTop;
 
 public:
 
     //Defualt constructor
     StudentRecordNode(int pRecordNumber = 0, int pIDNumber = 0, string pEmail = "", string pUnits = "", string pProgram = "",
-     string pLevel = "", StudentRecordNode *next = nullptr, int pNumOfAbsences = 0, AbsenceStack *pStackTop = nullptr);
+     string pLevel = "", StudentRecordNode *next = nullptr, string pNumOfAbsences = "", AbsenceStack *pStackTop = nullptr);
 
     //Setters
     //////////////////////////////////////////////////
@@ -77,7 +77,7 @@ public:
     void SetNext(StudentRecordNode *&passedRecord);
 
 	//Setter for the absences
-	void SetAbsences(int passedAbsences);
+	void SetAbsences(string passedAbsences);
 
 
     //Getters
@@ -108,6 +108,9 @@ public:
 
     //Getter for the next record
     StudentRecordNode* GetNext() const;
+
+	//getter for the numbe fo absences
+	string GetNumberOfAbsences() const;
 
 	//Getter for the absence stack
 	AbsenceStack*& GetStack();

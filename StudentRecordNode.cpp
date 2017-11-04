@@ -1,7 +1,7 @@
 #include "StudentRecordNode.h"
 
 StudentRecordNode::StudentRecordNode(int pRecordNumber, int pIDNumber, string pEmail, string pUnits, string pProgram, string pLevel,
-    StudentRecordNode *next, int pNumOfAbsences, AbsenceStack *pStackTop){
+    StudentRecordNode *next, string pNumOfAbsences, AbsenceStack *pStackTop){
     
     recordNumber = pRecordNumber;
 
@@ -158,16 +158,23 @@ StudentRecordNode* StudentRecordNode::GetNext() const{
 
 }
 
-AbsenceStack*& StudentRecordNode::GetStack() {
+AbsenceStack*& StudentRecordNode::GetStack(){
 
 	//returning our stack
 	return this->stackTop;
 
 }
 
-void StudentRecordNode::SetAbsences(int passedAbsences) {
+void StudentRecordNode::SetAbsences(string passedAbsences) {
 
 	//Setting the node absences to the absolute value of the passed absences
 	this->numberOfAbsences = abs(passedAbsences);
+
+}
+
+string StudentRecordNode::GetNumberOfAbsences() const{
+
+	//returning the number of absences this node has had
+	return this->numberOfAbsences;
 
 }

@@ -6,13 +6,25 @@ StudentRecordList::StudentRecordList(StudentRecordNode *head){
 
 }
 
-void StudentRecordList::InsertRecord(int passedRecordNumber, int passedIDNumber, string passedLastName, string passedFirstName, string passedEmail, string passedUnits, string passedProgram, string passedLevel){
+void StudentRecordList::InsertRecord(int passedRecordNumber, int passedIDNumber, string passedLastName, 
+	string passedFirstName, string passedEmail, string passedUnits, string passedProgram, string passedLevel,
+	string passedNumberOfAbsences, string passedAbsenceList){
 
     //Create a pointer to a StudentRecordNode and point it to a new record node with default values
     StudentRecordNode *newRecord = new StudentRecordNode();
 
     this->SetValues(newRecord, passedRecordNumber, passedIDNumber, passedLastName, passedFirstName, passedEmail,
                     passedUnits, passedProgram, passedLevel);
+
+	//Setting values in the case of absences
+	if (passedNumberOfAbsences != "") {
+
+		newRecord->SetAbsences(passedNumberOfAbsences);
+
+
+
+
+	}
 
     //insert the node into an empty list
     if (headNode == nullptr)

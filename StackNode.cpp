@@ -3,11 +3,11 @@
 StackNode::StackNode(Absence pAbsenceDate, StackNode *pNextNode){
 
     //Set the defualt variables to the constructor default values
-	absenceDate.SetDay(0);
+	absenceDate.SetDay("");
 
 	absenceDate.SetMonth("");
 
-	absenceDate.SetYear(0);
+	absenceDate.SetYear("");
 
     //will be nullptr
     nextNode = nullptr;

@@ -1,6 +1,6 @@
 #include "Absence.h"
 
-Absence::Absence(int pDay, string pMonth, int pYear){
+Absence::Absence(string pDay, string pMonth, string pYear){
 
 	day = pDay;
 
@@ -10,7 +10,7 @@ Absence::Absence(int pDay, string pMonth, int pYear){
 
 }
 
-void Absence::SetDay(int passedDay) {
+void Absence::SetDay(string passedDay) {
 
 	day = passedDay;
 
@@ -22,13 +22,13 @@ void Absence::SetMonth(string passedMonth) {
 
 }
 
-void Absence::SetYear(int passedYear) {
+void Absence::SetYear(string passedYear) {
 
 	year = passedYear;
 
 }
 
-int Absence::GetDay() {
+string Absence::GetDay() {
 
 	return day;
 
@@ -40,7 +40,7 @@ string Absence::GetMonth() {
 
 }
 
-int Absence::GetYear() {
+string Absence::GetYear() {
 
 	return year;
 

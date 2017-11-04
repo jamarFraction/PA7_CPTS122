@@ -15,7 +15,8 @@ public:
 
     //Insertion of a record
     void InsertRecord(int passedRecordNumber, int passedIDNumber, string passedLastName, string passedFirstName,
-        string passedEmail, string passedUnits, string passedProgram, string passedLevel);
+        string passedEmail, string passedUnits, string passedProgram, string passedLevel,
+		string passedNumberOfAbsences = "", string passedAbsenceList = "");
 
     //Setter for the head node
     void SetHead(StudentRecordNode *&passedNode);    

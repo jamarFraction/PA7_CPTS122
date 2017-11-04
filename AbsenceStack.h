@@ -15,6 +15,8 @@ public:
     //Default constructor
     AbsenceStack(StackNode *passedTop = nullptr);
 
+	StackNode*& GetTop();
+
     //IsEmpty
     bool isEmpty();
 
