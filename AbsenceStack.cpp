@@ -22,20 +22,23 @@ bool AbsenceStack::isEmpty(){
 
 }
 
-void AbsenceStack::Push(StackNode &passedData){
+void AbsenceStack::Push(StackNode *&passedData) {
 
-    //Create a pointer to a Stacknode and point it to the the top of the stack
-    StackNode temp = *sTop;
-    
 	if(this->isEmpty()) {
 
-		sTop = &passedData;
+		sTop = passedData;
 
 	}
 	else {
 
+		//Create a pointer to a Stacknode and point it to the the top of the stack
+		StackNode *temp = sTop;
+
 		//set the top of the stack to the passedData
-		sTop = &passedData;
+		sTop = passedData;
+
+		//set the current sTop's next Node to the temp pointer (the Node that used to be the head Node)
+		sTop->SetNextNode(temp);
 
 	}
 

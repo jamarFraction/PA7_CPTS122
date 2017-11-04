@@ -59,22 +59,47 @@ private:
 
                                 this->ImportClassList();
 
-								//Testing
-								StackNode blah;
 
+								/////////////////////////////////////////////////////////////////////////////
+								//Testing
 								Absence testAbsence;
 
-								testAbsence.SetDay(7);
+								Absence testAbsence2;
+
+								StackNode *testStackNode = new StackNode;
+
+								StackNode *testStackNode2 = new StackNode;
+
+								StudentRecordNode *testRecordNode = this->recordList->GetHead();
+
+								AbsenceStack *testStack = new AbsenceStack;// = testNode->GetStack();
+
+								testAbsence.SetDay(1);
+
 								testAbsence.SetMonth("July");
+
 								testAbsence.SetYear(1991);
 
+								testAbsence2.SetDay(2);
 
-								
+								testAbsence2.SetMonth("June");
 
-								this->recordList->GetHead()->GetStack()->Push(blah);
+								testAbsence2.SetYear(1992);
 
-								StackNode *tempNode = this->recordList->GetHead()->GetStack()->Pop();
+								testStackNode->SetData(testAbsence);
+
+								testStackNode2->SetData(testAbsence2);
+
+								testStack->Push(testStackNode);
+
+								testStack->Push(testStackNode2);
+
+								StackNode *toRemove = testStack->Pop();
+
+								delete(toRemove);
+
 								//end testing
+								////////////////////////////////////////////////////////////////////////////////
 
                             }else{
 

@@ -19,7 +19,7 @@ StudentRecordNode::StudentRecordNode(int pRecordNumber, int pIDNumber, string pE
 
 	numberOfAbsences = pNumOfAbsences;
 
-	stackTop = pStackTop;
+	stackTop = nullptr;
 
 }
 

@@ -1,6 +1,6 @@
 #include "StackNode.h"
 
-StackNode::StackNode(){
+StackNode::StackNode(Absence pAbsenceDate, StackNode *pNextNode){
 
     //Set the defualt variables to the constructor default values
 	absenceDate.SetDay(0);

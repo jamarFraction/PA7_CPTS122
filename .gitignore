@@ -70,3 +70,4 @@ Temporary Items
 .history
 
 # End of https://www.gitignore.io/api/c++,macos,visualstudiocode
+StackNode.h

@@ -19,7 +19,7 @@ public:
     bool isEmpty();
 
     //Push
-    void Push(StackNode &passedData);
+    void Push(StackNode *&passedData);
 
 	//Pop 
 	StackNode*& Pop();

@@ -9,7 +9,7 @@ class Absence{
 public:
 
 	//Default constructor
-	Absence(int day =  NULL, string month = NULL, int year = NULL);
+	Absence(int day =  0, string month = "", int year = 0);
 
 	void SetDay(int passedDay);
 	void SetMonth(string passedMonth);

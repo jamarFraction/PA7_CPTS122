@@ -15,7 +15,7 @@ private:
 public:
 
     //Defualt Constructor
-    StackNode();
+    StackNode(Absence pAbsenceDate = NULL, StackNode *pNextNode = nullptr);
 
     //Getter for the data
     Absence& GetData();
