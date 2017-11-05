@@ -1,47 +1,18 @@
 #include "Absence.h"
 
-Absence::Absence(string pDay, string pMonth, string pYear){
+Absence::Absence(string pDate){
 
-	day = pDay;
-
-	month = pMonth;
-
-	year = pYear;
+	date = pDate;
 
 }
 
-void Absence::SetDay(string passedDay) {
+void Absence::SetDate(string passedDate) {
 
-	day = passedDay;
-
-}
-
-void Absence::SetMonth(string passedMonth) {
-
-	month = passedMonth;
+	date = passedDate;
 
 }
 
-void Absence::SetYear(string passedYear) {
+string Absence::GetDate() {
 
-	year = passedYear;
-
-}
-
-string Absence::GetDay() {
-
-	return day;
-
-}
- 
-string Absence::GetMonth() {
-
-	return month;
-
-}
-
-string Absence::GetYear() {
-
-	return year;
-
+	return this->date;
 }

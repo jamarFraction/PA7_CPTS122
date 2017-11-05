@@ -9,23 +9,16 @@ class Absence{
 public:
 
 	//Default constructor
-	Absence(string day =  "", string month = "", string year = "");
+	Absence(string date = "");
 
-	void SetDay(string passedDay);
-	void SetMonth(string passedMonth);
-	void SetYear(string passedYear);
+	void SetDate(string passedDate);
 
-	string GetDay();
-	string GetMonth();
-	string GetYear();
+	string GetDate();
 
-
-
+	
 private:
 
-	string day;
-	string month;
-	string year;
+	string date;
 
 
 };

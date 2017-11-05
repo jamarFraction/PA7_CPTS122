@@ -199,7 +199,18 @@ private:
 				//list of absences
 				string fileListOfAbsences;
 
-				getline(passedClassList, fileListOfAbsences, '*');
+				//are there any absences to read in?
+				if (fileNumberOfAbsences != "0") {
+
+					getline(passedClassList, fileListOfAbsences, '*');
+
+				}
+				else {
+
+					//get the '*' at the end of the line as to not import another record
+					getline(passedClassList, dummyLine);
+				}
+				
 
 				recordList->InsertRecord(fileRecordNumber, fileIDNumber, fileLastName, fileFirstName,
 					fileEmail, fileUnits, fileProgram, fileLevel, fileNumberOfAbsences, fileListOfAbsences);
@@ -286,7 +297,7 @@ private:
 			"," << currentRecord->GetLevel() << "," << currentRecord->GetNumberOfAbsences() << "*";
 
 		//check to see if the current record has absences or not
-		if (currentRecord->GetNumberOfAbsences() != 0) {
+		if (currentRecord->GetNumberOfAbsences() != "0") {
 
 
 			//the record has at least one absence
@@ -299,7 +310,7 @@ private:
 				Absence currentAbsence = currentStackNode->GetData();
 
 				//xx/xx/xxxx
-				outfile << currentAbsence.GetMonth() << "/" << currentAbsence.GetDay() << "/" << currentAbsence.GetYear();
+				outfile << currentAbsence.GetDate();
 
 				//advance to the next absence
 				currentStackNode = currentStackNode->GetNextNode();

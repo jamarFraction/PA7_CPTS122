@@ -1,7 +1,9 @@
 #include <string>
+#include <sstream>
 #include "AbsenceStack.h"
 
 using std::string;
+using std::istringstream;
 
 
 class StudentRecordNode{
@@ -48,7 +50,7 @@ public:
 
     //Defualt constructor
     StudentRecordNode(int pRecordNumber = 0, int pIDNumber = 0, string pEmail = "", string pUnits = "", string pProgram = "",
-     string pLevel = "", StudentRecordNode *next = nullptr, string pNumOfAbsences = "", AbsenceStack *pStackTop = nullptr);
+     string pLevel = "", StudentRecordNode *next = nullptr, string pNumOfAbsences = "0", AbsenceStack *pStackTop = nullptr);
 
     //Setters
     //////////////////////////////////////////////////
@@ -78,6 +80,11 @@ public:
 
 	//Setter for the absences
 	void SetAbsences(string passedAbsences);
+
+	//Process Absence List
+	//Function takes the string representation of the dates the student has been
+	//absent and pushes them into the absence stack
+	void ProcessAbsenceList(string passedAbsenceDates);
 
 
     //Getters

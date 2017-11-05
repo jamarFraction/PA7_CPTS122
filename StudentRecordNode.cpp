@@ -19,7 +19,9 @@ StudentRecordNode::StudentRecordNode(int pRecordNumber, int pIDNumber, string pE
 
 	numberOfAbsences = pNumOfAbsences;
 
-	stackTop = nullptr;
+	this->stackTop = new AbsenceStack;
+
+	//stackTop = nullptr;
 
 }
 
@@ -168,7 +170,7 @@ AbsenceStack*& StudentRecordNode::GetStack(){
 void StudentRecordNode::SetAbsences(string passedAbsences) {
 
 	//Setting the node absences to the absolute value of the passed absences
-	this->numberOfAbsences = abs(passedAbsences);
+	this->numberOfAbsences = passedAbsences;
 
 }
 
@@ -176,5 +178,49 @@ string StudentRecordNode::GetNumberOfAbsences() const{
 
 	//returning the number of absences this node has had
 	return this->numberOfAbsences;
+
+}
+
+void StudentRecordNode::ProcessAbsenceList(string passedAbsenceDates) {
+
+	//The istream representation of the lis tof absences.. needed for geline
+	istringstream AbsenceList(passedAbsenceDates);
+
+	//Variables to hold dates and days
+	string currentFullDate = "";
+	string previousDate = "";
+
+
+
+	//start the loop
+	do {
+		
+		//set the previous date to what will be the last date pulled from the line
+		previousDate = currentFullDate;
+
+		//use getline to pull the next date from the line
+		getline(AbsenceList, currentFullDate, ',');
+
+		//are the dates the same?
+		if (currentFullDate != previousDate) {
+			//if not:
+
+			//Allocate space for a new node
+			StackNode *newNode = new StackNode;
+			
+			//set it's values to the current date
+			newNode->SetData(currentFullDate);
+
+			//push it into our absence stack
+			this->GetStack()->Push(newNode);
+
+		}
+
+
+
+		//if no new information was pulled from the line, currentDate will remian the same as the last
+		//run through the loop..
+		//same information = end of new dates
+	} while (currentFullDate != previousDate);
 
 }

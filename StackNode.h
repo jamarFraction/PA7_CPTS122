@@ -15,13 +15,13 @@ private:
 public:
 
     //Defualt Constructor
-    StackNode(Absence pAbsenceDate, StackNode *pNextNode = nullptr);
+    StackNode(StackNode *pNextNode = nullptr);
 
     //Getter for the data
     Absence& GetData();
 
     //Setter for the data
-    void SetData(Absence &passedData);
+	void SetData(string passedAbsenceDate);
 
     //Getter for the next Node
     StackNode*& GetNextNode();

@@ -19,10 +19,11 @@ void StudentRecordList::InsertRecord(int passedRecordNumber, int passedIDNumber,
 	//Setting values in the case of absences
 	if (passedNumberOfAbsences != "") {
 
+		//Set the number of absences
 		newRecord->SetAbsences(passedNumberOfAbsences);
 
-
-
+		//send the list of absences to the processing function
+		newRecord->ProcessAbsenceList(passedAbsenceList);
 
 	}
 
