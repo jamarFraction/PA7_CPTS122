@@ -1,6 +1,8 @@
 #include <iostream>
 #include <fstream>
 #include <string>
+#include <ctime>
+#include <sstream>
 
 #include "StudentRecordList.h"
 
@@ -70,21 +72,35 @@ private:
 
 									this->ImportMasterList();
 
-
 								}
 
 								break;
-
-
 
 							case 3:
 
 								//wrinting to the "master" text file
 								this->StartWriteToMasterFile();
 
+								break;
 
-                            
-                
+							case 4:
+
+								//Mark absences
+								if (this->recordList != nullptr) {
+
+									this->MarkAbsences();
+
+								}
+								else {
+
+									//no list has been read in yet
+									system("cls");
+									cout << "Error: no list present" << endl;
+									system("pause");
+								}
+
+								break;
+
                             //exit +
                             //anything else    
                             default:
@@ -389,4 +405,75 @@ private:
 
 	}
   
+	void MarkAbsences() {
+
+		//input for menu
+		int option = 0;
+
+		
+		time_t t = time(0);   // get time now
+		struct tm * now = localtime(&t);
+		
+
+		string currentDate = "";
+		std::ostringstream oss;
+
+		//date in format mm/dd/yyyy
+		oss << (now->tm_mon + 1) << "/" << (now->tm_mday) << "/" << (now->tm_year + 1900);
+		currentDate = oss.str();
+
+
+		//Create a pointer and point it to the first record in the list
+		StudentRecordNode *location = this->recordList->GetHead();
+
+		//Loop through the Students and prompt for an absence
+		while (location != nullptr) {
+
+			do {
+
+				system("cls");
+
+				//prompt for absence
+				cout << "Was " << location->GetFirstName() << " " << location->GetLastName() <<
+					" present? (1 = Yes, 2 = No): ";
+
+				cin >> option;
+
+				//The student was absent
+				if (option == 2) {
+
+					//push today if the student hasn't already been marked absent
+					if (location->GetStack()->GetTop() == nullptr || location->GetStack()->Peek()->GetData().GetDate() != currentDate) {
+
+						//Create pointer to a stack node, set the date to today, push the absence to the stack, increment the absence number
+						StackNode *newNode = new StackNode();
+
+						newNode->SetData(currentDate);
+
+						location->GetStack()->Push(newNode);
+
+						//convert the number of absences to an int + increment by 1
+						int absence = std::stoi(location->GetNumberOfAbsences()) + 1;
+
+						//set the number of absences
+						location->SetAbsences(std::to_string(absence));
+
+
+					}
+
+				}
+
+
+			} while (option != 1 && option != 2);
+			
+			//advance the location in the student list
+			location = location->GetNext();
+		}
+
+		//Success!
+		system("cls");
+		cout << "Absences recorded sucessfully!" << endl;
+		system("pause");
+
+	}
 };

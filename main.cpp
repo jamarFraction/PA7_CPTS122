@@ -1,5 +1,4 @@
 #include <iostream>
-#include <ctime>
 #include "menu.h"
 
 using std::cout;

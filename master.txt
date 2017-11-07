@@ -8,4 +8,4 @@ RecordNumber,ID,Name,Email,Units,Program,Level,Number of Absences*Absence1,etc..
 4,4478,"Art,Bruce",bart@cpts122.edu,AU,CPTE,Freshman,0*
 3,1121,"Leinart,Timothy",tim@cpts122.edu,4,EE,Junior,0*
 2,8147,"Beck,Sara",sara@cpts122.edu,4,EE,Junior,0*
-1,1111,"Smith,John",smithj@cpts122.edu,4,CS,Freshman,3*09/08/2016,10/17/2017,7/22/1991*
+1,1111,"Smith,John",smithj@cpts122.edu,4,CS,Freshman,0*

@@ -61,3 +61,10 @@ StackNode*& AbsenceStack::Pop() {
 	//return the head node
 	return headNode;
 }
+
+StackNode* AbsenceStack::Peek() {
+
+
+	return this->sTop;
+
+}

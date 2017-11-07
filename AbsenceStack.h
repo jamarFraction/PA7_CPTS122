@@ -25,4 +25,7 @@ public:
 
 	//Pop 
 	StackNode*& Pop();
+
+	//Peek
+	StackNode* Peek();
 };
