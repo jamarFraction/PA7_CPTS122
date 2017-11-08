@@ -218,7 +218,9 @@ private:
 				//are there any absences to read in?
 				if (fileNumberOfAbsences != "0") {
 
-					getline(passedClassList, fileListOfAbsences, '*');
+					getline(passedClassList, fileListOfAbsences);
+
+					fileListOfAbsences.pop_back();
 
 				}
 				else {
@@ -233,6 +235,8 @@ private:
 
 
 			}
+
+
             
         }
 

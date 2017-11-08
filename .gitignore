@@ -70,5 +70,5 @@ Temporary Items
 .history
 
 # End of https://www.gitignore.io/api/c++,macos,visualstudiocode
-StackNode.h
 PA7.VC.VC.opendb
+.vs/PA7/v14/.suo
