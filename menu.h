@@ -320,38 +320,68 @@ private:
 		if (currentRecord->GetNumberOfAbsences() != "0") {
 
 
-			//the record has at least one absence
-			StackNode *currentStackNode = currentRecord->GetStack()->GetTop();
+			
+
+			//keep popping the stack and pushing the nodes into a new stack until the first stack is empty
+			//as a push is performed back into the original stack, write to the file
+
+			AbsenceStack *tempStack = new AbsenceStack;
+			StackNode * currentStackNode;
+
+			while (currentRecord->GetStack()->isEmpty() == false) {
+
+				currentStackNode = currentRecord->GetStack()->Pop();
+
+				tempStack->Push(currentStackNode);
+
+			}
 
 
-			while (currentStackNode != nullptr) {
+
+			while (tempStack->isEmpty() == false) {
+
+				//absences are now in reverse order in the temp stack
+				currentStackNode = tempStack->Pop();
 
 				//Variable to hold the info for the current absence
 				Absence currentAbsence = currentStackNode->GetData();
 
+				
 				//xx/xx/xxxx
 				outfile << currentAbsence.GetDate();
 
+				currentRecord->GetStack()->Push(currentStackNode);
+
 				//advance to the next absence
-				currentStackNode = currentStackNode->GetNextNode();
+				if (tempStack->isEmpty() == false) {
 
-
-
-				//check to see if there is another absence
-				if (currentStackNode != nullptr) {
-
-					//if so, print a comma
+					//print a comma
 					outfile << ",";
-
 				}
 				else {
 
 					//otherwise, print a star
 					outfile << "*";
-
 				}
+				
+
+				////check to see if there is another absence
+				//if (currentStackNode != nullptr) {
+
+				//	//if so, print a comma
+				//	outfile << ",";
+
+				//}
+				//else {
+
+				//	//otherwise, print a star
+				//	outfile << "*";
+
+				//}
 
 			}
+
+			
 
 		}
 	}

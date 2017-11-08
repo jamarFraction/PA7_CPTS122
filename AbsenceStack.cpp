@@ -53,10 +53,13 @@ void AbsenceStack::Push(StackNode *&passedData) {
 StackNode*& AbsenceStack::Pop() {
 
 	//create a StackNode pointer and point it to the current sTop
-	static StackNode *headNode = this->sTop;
+	StackNode *headNode = this->sTop;
 
 	//point the new sTop to the current sTop's next node
 	sTop = sTop->GetNextNode();
+
+	//set the node's next pointer to null
+	headNode->SetNextToNull();
 
 	//return the head node
 	return headNode;

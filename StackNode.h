@@ -29,4 +29,6 @@ public:
     // //Setter for the next Node
     void SetNextNode(StackNode *&passedNode);
 
+	void SetNextToNull();
+
 };

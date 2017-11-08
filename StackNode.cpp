@@ -41,3 +41,8 @@ void StackNode::SetNextNode(StackNode *&passedNode){
     nextNode = passedNode;
 
 }
+
+void StackNode::SetNextToNull() {
+
+	this->nextNode = nullptr;
+}
