@@ -1,3 +1,10 @@
+/*******************************************************************************************
+* Programmer: Jamar Fraction                                                               *
+* Class: CptS 122, Fall  2017; Lab Section 05											   *
+* Programming Assignment: PA7															   *
+* Date: November 8, 2017                                                                   *
+* Description: This program fulfills the requirements for the seventh programming assignment*
+********************************************************************************************/
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -86,9 +93,26 @@ private:
 							case 4:
 
 								//Mark absences
-								if (this->recordList != nullptr) {
+								if (this->recordList->GetHead() != nullptr) {
 
 									this->MarkAbsences();
+
+								}
+								else {
+
+									//no list has been read in yet
+									system("cls");
+									cout << "Error: no list present" << endl;
+									system("pause");
+								}
+
+								break;
+
+							case 6:
+
+								if (this->recordList->GetHead() != nullptr) {
+
+									this->StartReportGeneration();
 
 								}
 								else {
@@ -388,8 +412,8 @@ private:
 
 	bool HasListBeenLoaded() {
 
-
-		if (this->recordList->GetHead() == nullptr) {
+		//okay let's be honest, the logic here is fucked
+		if (this->recordList != nullptr) {
 
 			return false;
 
@@ -509,5 +533,134 @@ private:
 		cout << "Absences recorded sucessfully!" << endl;
 		system("pause");
 
+	}
+
+	void StartReportGeneration() {
+
+		int option = 0;
+
+		do {
+			//Sub-menu prompt
+			system("cls");
+			cout << "Which type of report would you like to generate?\n1. Most recent absence for all students\n2. Absences based on number of absences\n";
+			cin >> option;
+
+		} while (option < 1 || option > 2);
+
+
+		//What kind of report?
+		switch (option) {
+
+		case 1:
+
+			//report prints in this function.. so go there
+			this->MostRecentAbsenceReport();
+
+			break;
+		case 2:
+
+			//same as case 1.. see you there
+			this->AbsenceLimitedReport();
+
+			break;
+
+		//you heard?	
+		default:
+			break;
+
+
+		}
+	}
+
+	void MostRecentAbsenceReport() {
+
+		cout << "Most recent absences\n\n";
+
+		//First record in the list
+		StudentRecordNode *currentRecord = this->recordList->GetHead();
+
+		//String to hold the date
+		string mostRecentAbsence;
+
+		while (currentRecord != nullptr) {
+
+			//if the stack is empty
+			if (currentRecord->GetStack()->isEmpty() == false) {
+
+				//set the absence date
+				mostRecentAbsence = currentRecord->GetStack()->GetTop()->GetData().GetDate();
+
+				//print
+				cout << currentRecord->GetFirstName() << " " << currentRecord->GetLastName() << ": " <<
+					mostRecentAbsence << endl;
+
+			}
+			else {
+
+				//First Last: xx/xx/xxxx
+				cout << currentRecord->GetFirstName() << " " << currentRecord->GetLastName() << ": " <<
+					"No absences" << endl;
+
+
+			}
+
+			//advance to the next record in the list
+			currentRecord = currentRecord->GetNext();
+
+
+		}
+
+		//and we wait..
+		cout << "\n\n";
+		system("pause");
+
+		 
+	}
+
+	void AbsenceLimitedReport() {
+
+		//at least this many absences
+		int absenceFloor = 0;
+
+		do {
+			//Sub-menu prompt
+			system("cls");
+			cout << "Print records with at least how many absences? ";
+			cin >> absenceFloor;
+
+		} while (absenceFloor < 1);
+
+		cout << "\n\n";
+
+
+		//First record in the list
+		StudentRecordNode *currentRecord = this->recordList->GetHead();
+
+		//String to hold the date
+		string mostRecentAbsence;
+
+
+
+		while (currentRecord != nullptr) {
+
+			//convert the number of absences to an int
+			int absence = std::stoi(currentRecord->GetNumberOfAbsences());
+
+			//check the record absences against the user's number
+			if (absence >= absenceFloor) {
+
+				cout << currentRecord->GetFirstName() << " " << currentRecord->GetLastName() << endl;
+
+			}
+
+
+			//advance to the next record in the list
+			currentRecord = currentRecord->GetNext();
+		}
+
+
+		//and we wait..
+		cout << "\n\n";
+		system("pause");
 	}
 };

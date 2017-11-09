@@ -72,3 +72,17 @@ Temporary Items
 # End of https://www.gitignore.io/api/c++,macos,visualstudiocode
 PA7.VC.VC.opendb
 .vs/PA7/v14/.suo
+Debug/vc140.pdb
+Debug/vc140.pdb
+*.idb
+*.pdb
+Debug/PA7.pdb
+Debug/vc140.pdb
+Debug/main.obj.enc
+Debug/PA7.ilk
+Debug/PA7.log
+Debug/PA7.pdb
+Debug/PA7.tlog/link.read.1.tlog
+Debug/vc140.idb
+Debug/vc140.pdb
+.vs/PA7/v14/.suo
